@@ -1,0 +1,92 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages.Meta"
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.Meta.Potion"
+      mc:Ignorable="d" 
+      Title="Potion" Width="800" Height="420">
+
+    <Grid x:Name="PagePotion">
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="ItemMeta(Potion) de [I]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Label x:Name="lblMainEffect" Content="Effet principal : " Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="63,68,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="154"/>
+        <ComboBox x:Name="cbxMainEffect" SelectedIndex="0" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="19" Margin="222,74,0,0" VerticalAlignment="Top" Width="178" Height="26" VerticalContentAlignment="Center" SelectionChanged="cbxMainEffect_Changed">
+            <ComboBoxItem x:Name="UNCRAFTABLE" Tag="16253176" Content="Aucun"/>
+            <ComboBoxItem x:Name="WATER" Tag="3694022" Content="Eau"/>
+            <ComboBoxItem x:Name="AWKWARD" Tag="3694022" Content="Étrange"/>
+            <ComboBoxItem x:Name="THICK" Tag="3694022" Content="Épaisse"/>
+            <ComboBoxItem x:Name="MUNDANE" Tag="3694022" Content="Ordinaire"/>
+            <ComboBoxItem x:Name="FIRE_RESISTANCE" Tag="14981690" Content="Résitance au feu"/>
+            <ComboBoxItem x:Name="INSTANT_DAMAGE" Tag="4393481" Content="Dégat"/>
+            <ComboBoxItem x:Name="INSTANT_HEAL" Tag="16262179" Content="Soin"/>
+            <ComboBoxItem x:Name="INVISIBILITY" Tag="8356754" Content="Invisibilité"/>
+            <ComboBoxItem x:Name="JUMP" Tag="2293580" Content="Saut"/>
+            <ComboBoxItem x:Name="LUCK" Tag="3381504" Content="Chance"/>
+            <ComboBoxItem x:Name="NIGHT_VISION" Tag="2039713" Content="Vision nocture"/>
+            <ComboBoxItem x:Name="POISON" Tag="5149489" Content="Poison"/>
+            <ComboBoxItem x:Name="REGEN" Tag="13458603" Content="Régénération"/>
+            <ComboBoxItem x:Name="SLOW_FALLING" Tag="16773073" Content="Chute lente"/>
+            <ComboBoxItem x:Name="SLOWNESS" Tag="5926017" Content="Lenteur"/>
+            <ComboBoxItem x:Name="SPEED" Tag="8171462" Content="Rapidité"/>
+            <ComboBoxItem x:Name="STRENGTH" Tag="9643043" Content="Force"/>
+            <ComboBoxItem x:Name="TURTLE_MASTER" Tag="7691106" Content="Maître Tortue"/>
+            <ComboBoxItem x:Name="WATER_BREATHING" Tag="3035801" Content="Respiration aquatique"/>
+            <ComboBoxItem x:Name="WEAKNESS" Tag="3694022" Content="Faiblesse"/>
+        </ComboBox>
+        <CheckBox x:Name="cbMainEffectExtended" Content="Courte" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="424,75,0,0" VerticalAlignment="Top" Width="58" Click="CbExtended_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox x:Name="cbMainEffectUpgraded" Content="Niveau I" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="575,75,0,0" VerticalAlignment="Top" Width="75" Click="CbUpgraded_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Label x:Name="lblSecondaryEffects" Content="Effet(s) secondaire(s) : " Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="64,112,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="229"/>
+        <ListBox x:Name="boxSecondaryEffects" Style="{StaticResource lblFont1}" ScrollViewer.VerticalScrollBarVisibility="Auto" FontSize="15" Margin="69,155,530,163" MouseDoubleClick="boxDbl_Click"/>
+        <Label x:Name="lblName" Content="Nom :" ToolTip="Ce nom est uniquement pour retrouver l'effet créé dans la liste à gauche." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="284,142,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="59"/>
+        <TextBox x:Name="tbxName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="349,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131" Height="28"/>
+        <Label x:Name="lblEffect" Content="Effet :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="496,142,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="67"/>
+        <ComboBox x:Name="cbxEffect" SelectedIndex="0" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="19" Margin="568,148,0,0" VerticalAlignment="Top" Width="178" Height="26" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblDuration" Content="Durée :" ToolTip="La durée de l'effet en secondes. (Valeur max. : 9999)" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="284,184,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="76"/>
+        <TextBox x:Name="tbxDuration" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="380,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <Label x:Name="lblLevel" Content="Niveau :" ToolTip="L'amplificateur de l'effet (0 = niveau I). (Valeur max. : 255)" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="468,185,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="80"/>
+        <TextBox x:Name="tbxLevel" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="575,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <Label x:Name="lblAmbient" Content="Ambiant :" ToolTip="Makes potion effect produce more, translucent, particles." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="284,227,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="99"/>
+        <CheckBox x:Name="cbAmbient" Content="Non" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="380,234,0,0" VerticalAlignment="Top" Width="44" Click="CbValue_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Label x:Name="lblParticles" Content="Particules :" ToolTip="Détermine si l'entité affectée produit des particules ou non" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="468,227,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="110"/>
+        <CheckBox x:Name="cbParticles" Content="Non" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="575,234,0,0" VerticalAlignment="Top" Width="44" Click="CbValue_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Controls:ButtonControl x:Name="btnAdd" Text="Ajouter" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="663,188,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnRem" Text="Retirer" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="663,227,0,0" VerticalAlignment="Top"/>
+        <Rectangle x:Name="rectColor" HorizontalAlignment="Left" Height="40" Margin="161,273,0,0" Stroke="Black" StrokeThickness="3" VerticalAlignment="Top" Width="40"/>
+        <Label x:Name="lblColor" Content="Couleur : " Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="64,274,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="92"/>
+        <Label x:Name="lblRGBValue" Content="RGB : " ToolTip="" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="63,320,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="63"/>
+        <Slider x:Name="sliderRed" TickFrequency="1" IsSnapToTickEnabled="True" Tag="lblRed"  HorizontalAlignment="Left" Minimum="0" Maximum="255" Margin="140,327,0,0" VerticalAlignment="Top" Width="255" ValueChanged="Slider_Value"/>
+        <Label x:Name="lblRed" Content="Rouge : 0" ToolTip="" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="400,317,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="126"/>
+        <Slider x:Name="sliderGreen" TickFrequency="1" IsSnapToTickEnabled="True" Tag="lblGreen" HorizontalAlignment="Left" Minimum="0" Maximum="255" Margin="140,355,0,0" VerticalAlignment="Top" Width="255" ValueChanged="Slider_Value"/>
+        <Label x:Name="lblGreen" Content="Vert : 0" ToolTip="" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="400,345,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="126"/>
+        <Slider x:Name="sliderBlue" TickFrequency="1" IsSnapToTickEnabled="True" Tag="lblBlue" HorizontalAlignment="Left" Minimum="0" Maximum="255" Margin="140,385,0,0" VerticalAlignment="Top" Width="255" ValueChanged="Slider_Value"/>
+        <Label x:Name="lblBlue" Content="Bleu : 0" ToolTip="" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="400,375,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="126"/>
+        <CheckBox x:Name="cbDefColor" Content="Par défaut" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="589,324,0,0" VerticalAlignment="Top" Width="81" Click="cbDefColor_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.7" ScaleY="1.7" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Controls:ButtonControl x:Name="btnPresets" Text="Pré-sets" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="607,356,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

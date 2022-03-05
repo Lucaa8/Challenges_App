@@ -1,0 +1,37 @@
+﻿<Page x:Class="Challenges_App.Pages.Connect"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:c="clr-namespace:Challenges_App.Controls"
+      xmlns:local="clr-namespace:Challenges_App.Pages"
+      mc:Ignorable="d" 
+      Title="Connect" Width="800" Height="420">
+
+    <Grid x:Name="PageConnect">
+        <Grid x:Name="gridInterface" HorizontalAlignment="Center" VerticalAlignment="Center" Width="324" Height="225">
+            <Label x:Name="lblKey" ToolTip="/cadmin editor new (Clic pour copier)" Cursor="Hand" Content="Clé d'accès" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Center" FontSize="25" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="200" Height="32" MouseUp="lbl_Copy"/>
+            <TextBox x:Name="tbxKey" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Height="30" PreviewTextInput="txt_Changed"/>
+            <c:ButtonControl x:Name="btnAccess" Margin="215,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FrontColor="White" Enabled="True" BackColor="Black" Text="Accéder" BorderColor="White" BorderSize="2"/>
+            <Polygon x:Name="btnPlus" Cursor="Hand" Points="40,0 40,40 10,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="90,95,0,0" Width="40" Height="40" MouseEnter="btnPlus_MouseEnter" MouseLeave="btnPlus_MouseLeave" MouseUp="btnPlus_Click" RenderTransformOrigin="0.5 0.5">
+                <Polygon.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform x:Name="Scale" ScaleX="1" ScaleY="1"/>
+                        <RotateTransform x:Name="Rotate" Angle="-90"/>
+                    </TransformGroup>
+                </Polygon.RenderTransform>
+            </Polygon>
+            <TextBox x:Name="tbxAddrIP" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,141,0,0" TextWrapping="Wrap" Text="localhost:25575" VerticalAlignment="Top" Width="200" Height="30"/>
+            <Label x:Name="lblAddrIP" Visibility="Hidden" ToolTip="Modifier l'adresse IP du serveur (P.ex: localhost:25575)" Content="Adresse IP" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Center" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Height="32" Margin="56,104,0,0"/>
+        </Grid>
+        <Label x:Name="lblInfo" Content="Version {V} by Luca008" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Right" FontSize="18" HorizontalAlignment="Right" Margin="0,378,10,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="266" Height="32"/>
+        <Label x:Name="lblSplash" Content="SkyWhale" Foreground="#FFFDFF00" Style="{StaticResource Minecraft}" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,100,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="lblSplashScale" ScaleX="1" ScaleY="1"/>
+                    <RotateTransform Angle="20"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+    </Grid>
+</Page>

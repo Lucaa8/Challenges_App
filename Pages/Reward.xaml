@@ -1,0 +1,66 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages"
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.Reward"
+      mc:Ignorable="d" 
+      Title="Reward" Width="800" Height="420">
+
+    <Grid x:Name="PageReward">
+
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Récompense de [C]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label x:Name="lblMsg" Content="[M] :" ToolTip="[TT]" HorizontalContentAlignment="Right" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="21,96,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="78"/>
+        <Label x:Name="lblCommands" Content="Cmds :" ToolTip="Une ou plusieures commandes qui seront éxecutées lorsqu'un joueur termine le challenge.&#xA;{P} pour cibler le joueur&#xA;Chaque retour à la ligne défini une autre commande" HorizontalContentAlignment="Right" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="21,134,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="78"/>
+        <Label x:Name="lblMoney" Content="Argent :" ToolTip="Verser de l'argent au joueur qui termine le challenge. Laisser vide pour 0" HorizontalContentAlignment="Right" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="15,322,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="84"/>
+        <Label x:Name="lblExperience" Content="Exp :" ToolTip="Donner de l'expérience v b au joueur qui termine le challenge. Laisser vide pour 0" HorizontalContentAlignment="Right" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="17,353,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="82"/>
+        <Label x:Name="lblItems" HorizontalContentAlignment="Center" Content="Items ;" ToolTip="Une liste de x items qui seront donnés en récompense au joueur" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="423,53,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="200"/>
+        <Label x:Name="lblItem" Content="Item ;" ToolTip="Un des items créés dans le manageur d'items" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="628,82,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="66"/>
+        <Label x:Name="lblCount" Content="Quantité ;" ToolTip="Le nombre d'tems qui seront donnés au joueur.&#xA;Peut excéder 64." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="627,148,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="101"/>
+        <Label x:Name="lblLuck" Content="Chance ;" ToolTip="Le pourcentage de chance que l'item soit donné au joueur.&#xA;Laisser vide pour 100%" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="627,212,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="101"/>
+        <Label x:Name="lblSortOrder" Content="Ordre de tri ;" ToolTip="Ordre d'affichage des items sur le lore de l'item qui représente le challenge. (Aussi dans l'inventaire).&#xA;Valeur comprise entre 0 et 10000" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" Margin="627,276,0,0" VerticalContentAlignment="Center" Height="38" Width="172" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <ComboBox x:Name="cbxReward" HorizontalAlignment="Left" Margin="104,20,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="126" Height="28" SelectionChanged="cbxReward_Changed">
+            <ComboBoxItem Content="Première fois"/>
+            <ComboBoxItem Content="Autres fois"/>
+        </ComboBox>
+        <ComboBox x:Name="cbxItem" SelectedIndex="0" HorizontalAlignment="Left" Margin="627,120,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="162" Height="28"/>
+        <ComboBox x:Name="cbxExpType" SelectedIndex="0" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="19" Margin="179,359,0,0" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="94" Height="26" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="ORB"/>
+            <ComboBoxItem Content="LVL"/>
+        </ComboBox>
+
+        <ListBox x:Name="boxItems" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" VerticalAlignment="Top" Margin="423,91,0,0" Width="200" Height="269" MouseDoubleClick="boxItems_DoubleClick"/>
+        <RichTextBox x:Name="rtbCommands" Margin="104,138,0,0" Width="296" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource lblFont1}" FontSize="17" Height="176">
+            <FlowDocument Block.LineHeight="2">
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <TextBox x:Name="tbxMsg" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="17" Margin="104,103,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" Height="24"/>
+        <TextBox x:Name="tbxMoneyCount" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="104,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxExpCount" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="104,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxItemCount" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="628,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxLuck" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="628,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxSortOrder" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="628,314,0,0" TextWrapping="Wrap" Text="" Width="70" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Controls:ButtonControl x:Name="btnAdd" Text="Ajouter" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="423,361,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnRem" Text="Retirer" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="523,361,0,0" VerticalAlignment="Top"/>
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Rectangle x:Name="rectReload" Cursor="Hand" ToolTip="Actualise les items dans le menu déroulant." HorizontalAlignment="Left" Height="38" Margin="690,82,0,0" VerticalAlignment="Top" Width="38" MouseEnter="rectReload_Enter" MouseLeave="rectReload_Leave" MouseUp="rectReload_Click" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform x:Name="rectReloadRotate" Angle="0"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+    </Grid>
+</Page>

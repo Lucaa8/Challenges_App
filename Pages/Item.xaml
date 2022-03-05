@@ -1,0 +1,102 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages"
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.Item"
+      mc:Ignorable="d" 
+      Title="Item" Width="800" Height="420">
+
+    <Grid x:Name="PageItem">
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Item : [I]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label x:Name="lblID" Content="ID :" ToolTip="Un identifieur NBTTAG sous forme de string (Non-visible par les joueurs)" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="73,48,0,0" VerticalAlignment="Top" Height="37" Width="44"/>
+        <Label x:Name="lblMaterial" Cursor="Hand" ToolTip="Le type d'item (Clique moi pour accéder au browser de matériaux)" Content="Materiel :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="279,48,0,0" VerticalAlignment="Top" Height="37" Width="94" MouseUp="onMaterialClick"/>
+        <Label x:Name="lblName" Content="Nom :" ToolTip="Le displayname de l'item" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="576,48,0,0" VerticalAlignment="Top" Height="37" Width="61"/>
+        <Label x:Name="lblLore" Content="Lore :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="56,90,0,0" VerticalAlignment="Top" Height="38" Width="61"/>
+        <Label x:Name="lblEnchants" Content="Ench. :" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="48,0,0,0" VerticalAlignment="Center" Height="36" Width="69"/>
+        <Label x:Name="lblFlags" Content="Flags :" ToolTip="Double cliquer sur un des flag pour le (dé-)séléctionner&#xA;Attention la liste est scrollable" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="449,0,0,0" VerticalAlignment="Center" Height="36" Width="69"/>
+        <Label x:Name="lblRepairCost" Content="Coût :" ToolTip="Le coût de réparation de l'item.&#xA;Cette valeur est uniquement le cout de base. Le système d'enclume ne change pas! 1diam=base+1, 2diams=base+2, etc.." Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="56,339,0,0" VerticalAlignment="Top" Height="36" Width="61"/>
+        <Label x:Name="lblCustomData" Content="Custom data :" ToolTip="La data custom de l'item voulu : à définir dans le pack de ressources" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="183,340,0,0" VerticalAlignment="Top" Height="36" Width="135"/>
+        <Label x:Name="lblDamage" Content="Durabilité :" ToolTip="La durabilité de l'item&#xA;Si valeur&gt;max alors l'item sera donné neuf" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="384,339,0,0" VerticalAlignment="Top" Height="36" Width="108"/>
+        <Label x:Name="lblInvulnerable" Content="Invulnérable :" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="560,340,0,0" VerticalAlignment="Top" Height="36" Width="133"/>
+        <TextBox x:Name="tbxID" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="122,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="144" Height="28"/>
+        <TextBox x:Name="tbxMaterial" IsEnabled="False" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="373,52,0,0" TextWrapping="Wrap" Text="STONE" VerticalAlignment="Top" Width="190" Height="28"/>
+        <TextBox x:Name="tbxName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="637,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149" Height="28"/>
+        <RichTextBox x:Name="rtbLore" Margin="122,90,14,232" Style="{StaticResource lblFont1}" FontSize="20">
+            <FlowDocument Block.LineHeight="2">
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ListBox x:Name="boxEnchants" Style="{StaticResource lblFont1}" FontSize="15" Margin="122,199,529,93"/>
+        <ListBox x:Name="boxFlags" Style="{StaticResource lblFont1}" FontSize="20" Margin="523,199,115,93" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" MouseDoubleClick="boxFlags_DoubleClick">
+            <ListBoxItem Tag="HIDE_ATTRIBUTES" Content="[] Hide attributes"/>
+            <ListBoxItem Tag="HIDE_DESTROYS" Content="[] Hide destroys"/>
+            <ListBoxItem Tag="HIDE_ENCHANTS" Content="[] Hide enchants"/>
+            <ListBoxItem Tag="HIDE_PLACED_ON" Content="[] Hide placed on"/>
+            <ListBoxItem Tag="HIDE_POTION_EFFECTS" Content="[] Hide potions"/>
+            <ListBoxItem Tag="HIDE_UNBREAKABLE" Content="[] Hide unbreakable"/>
+        </ListBox>
+        <Controls:ButtonControl x:Name="btnAttributes" HorizontalAlignment="Left" Text="Attributs" BorderColor="Black" BorderSize="2" Margin="690,237,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnMeta" HorizontalAlignment="Left" Text="Meta perso." BorderColor="Black" BorderSize="2" ToolTip="Têtes, Potions, Armures en cuir, TropicalBucket, Livres" Margin="690,267,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxRepairCost" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="122,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxCustomData" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="323,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxDamage" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="498,344,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <CheckBox x:Name="cbInvulnerable" Content="Non" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="698,348,0,0" VerticalAlignment="Top" Click="cbInvulnerable_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Controls:ButtonControl x:Name="btnEnchAdd" HorizontalAlignment="Left" Text="Ajouter" ToolTip="Ajouter l'enchantement séléctionné dans la comboxbox avec le niveau défini" BorderColor="Black" BorderSize="2" Margin="338,230,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnEnchRem" HorizontalAlignment="Left" ToolTip="Retirer l'enchantement séléctionné de la liste" Text="Retirer" BorderColor="Black" BorderSize="2" Margin="276,270,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxEnchLevel" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="279,229,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <ComboBox x:Name="cbxEnchName" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="19" Margin="279,199,0,0" VerticalAlignment="Top" Width="165" Height="26" VerticalContentAlignment="Center">
+            <ComboBoxItem Tag="aqua_affinity" Content="Aqua Affinity"/>
+            <ComboBoxItem Tag="bane_of_arthropods" Content="Bane of Arthropods"/>
+            <ComboBoxItem Tag="blast_protection" Content="Blast Protection"/>
+            <ComboBoxItem Tag="channeling" Content="Channeling"/>
+            <ComboBoxItem Tag="binding_curse" Content="Curse of Binding"/>
+            <ComboBoxItem Tag="vanishing_curse" Content="Curse of Vanishing"/>
+            <ComboBoxItem Tag="depth_strider" Content="Depth Strider"/>
+            <ComboBoxItem Tag="efficiency" Content="Efficiency"/>
+            <ComboBoxItem Tag="feather_falling" Content="Feather Falling"/>
+            <ComboBoxItem Tag="fire_aspect" Content="Fire Aspect"/>
+            <ComboBoxItem Tag="fire_protection" Content="Fire Protection"/>
+            <ComboBoxItem Tag="flame" Content="Flame"/>
+            <ComboBoxItem Tag="fortune" Content="Fortune"/>
+            <ComboBoxItem Tag="frost_walker" Content="Frost Walker"/>
+            <ComboBoxItem Tag="impaling" Content="Impaling"/>
+            <ComboBoxItem Tag="infinity" Content="Infinity"/>
+            <ComboBoxItem Tag="knockback" Content="Knockback"/>
+            <ComboBoxItem Tag="looting" Content="Looting"/>
+            <ComboBoxItem Tag="loyalty" Content="Loyalty"/>
+            <ComboBoxItem Tag="luck_of_the_sea" Content="Luck of the Sea"/>
+            <ComboBoxItem Tag="lure" Content="Lure"/>
+            <ComboBoxItem Tag="mending" Content="Mending"/>
+            <ComboBoxItem Tag="multishot" Content="Multishot"/>
+            <ComboBoxItem Tag="piercing" Content="Piercing"/>
+            <ComboBoxItem Tag="power" Content="Power"/>
+            <ComboBoxItem Tag="projectile_protection" Content="Projectile Protection"/>
+            <ComboBoxItem Tag="protection" Content="Protection"/>
+            <ComboBoxItem Tag="punch" Content="Punch"/>
+            <ComboBoxItem Tag="quick_charge" Content="Quick Charge"/>
+            <ComboBoxItem Tag="respiration" Content="Respiration"/>
+            <ComboBoxItem Tag="riptide" Content="Riptide"/>
+            <ComboBoxItem Tag="sharpness" Content="Sharpness"/>
+            <ComboBoxItem Tag="silk_touch" Content="Silk Touch"/>
+            <ComboBoxItem Tag="smite" Content="Smite"/>
+            <ComboBoxItem Tag="soul_speed" Content="Soul Speed"/>
+            <ComboBoxItem Tag="sweeping" Content="Sweeping Edge"/>
+            <ComboBoxItem Tag="thorns" Content="Thorns"/>
+            <ComboBoxItem Tag="unbreaking" Content="Unbreaking"/>
+        </ComboBox>
+        <Rectangle x:Name="btnSave" Cursor="Hand" ToolTip="Clique ici pour sauvegarder cet item dans un fichier" HorizontalAlignment="Left" Margin="755,7,0,0" VerticalAlignment="Top" Width="35" Height="35" MouseEnter="btnSave_Enter" MouseLeave="btnSave_Leave" MouseUp="btnSave_Click"/>
+    </Grid>
+</Page>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\lucad\Desktop\Dev\CSharp\Challenges\Challenges\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Attribute.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\CategorySession.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ChallengeSession.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Connect.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Item.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ItemsManager.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MainMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Meta\Book.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Meta\LeatherArmor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Meta\Potion.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Meta\Skull.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Meta\TropicalFish.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Required\Island.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Required\Items.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Required\Others.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Required\Stats.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Reward.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\ButtonControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Attribute.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CategorySession.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Loading.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\TitleBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ChallengeSession.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Connect.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Item.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ItemsManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MainMenu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Meta\Book.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Meta\LeatherArmor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Meta\Potion.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Meta\Skull.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Meta\TropicalFish.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Required\Island.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Required\Items.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Required\Others.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Required\Stats.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Reward.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

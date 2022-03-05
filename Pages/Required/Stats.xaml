@@ -1,0 +1,34 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages.Required"
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.Required.Stats"
+      mc:Ignorable="d" 
+      Title="Stats" Width="800" Height="420">
+
+    <Grid x:Name="PageStats">
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Requis(Stats) de [C]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+
+        <Label x:Name="lblStatistics" HorizontalContentAlignment="Center" Content="Satistiques ;" ToolTip="Une liste de x statistiques qui vont devoir être terminées par les joueurs" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="41,91,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="200"/>
+        <ListBox x:Name="boxStatistics" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" VerticalAlignment="Top" Margin="41,129,0,0" Width="200" Height="271" MouseDoubleClick="box_DoubleClick"/>
+        <Label x:Name="lblStatistic" Content="Statistique :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="244,129,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="173"/>
+        <ComboBox x:Name="cbxStatistic" HorizontalAlignment="Left" Margin="422,134,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="290" Height="28" SelectionChanged="cbxStatistic_Changed"/>
+        <Label x:Name="lblSubStatistic" Content="Sous-statistique :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="246,172,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="171"/>
+        <ListBox x:Name="boxSubStatistic" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Top" Margin="422,184,0,0" Width="200" Height="160" MouseDoubleClick="boxSubstatistic_DoubleClick"/>
+        <Label x:Name="lblCount" Content="Quantié :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="246,354,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="173"/>
+        <TextBox x:Name="tbxCount" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="422,360,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="82" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxResearch" Foreground="DarkSlateGray" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="627,316,0,0" TextWrapping="Wrap" Text="Rechercher..." VerticalAlignment="Top" Width="134" Height="28" LostFocus="Research_LostFocus" GotFocus="Research_GotFocus" TextChanged="Research_Changed"/>
+
+        <Controls:ButtonControl x:Name="btnAdd" Text="Ajouter" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="512,358,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnRem" Text="Retirer" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="612,358,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

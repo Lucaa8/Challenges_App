@@ -1,0 +1,32 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages"
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.Attribute"
+      mc:Ignorable="d" 
+      Title="Attribute" Width="800" Height="420">
+
+    <Grid x:Name="PageAttribute">
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Attributs de [I]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <ListBox x:Name="boxAttributes" Style="{StaticResource lblFont1}" FontSize="15" Margin="89,86,547,57" MouseDoubleClick="boxDbl_Click"/>
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Label x:Name="lblName" Content="Nom :" ToolTip="The name of this modifier." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="266,87,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="156"/>
+        <Label x:Name="lblAttribute" Content="Attribut :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="266,129,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="156"/>
+        <Label x:Name="lblValue" Content="Valeur(∈ℝ) : " ToolTip="The amount by which this modifier will apply its AttributeModifier.Operation." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="266,173,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="156"/>
+        <Label x:Name="lblOperation" Content="Opération :" ToolTip="The operation this modifier will apply." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="266,215,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="156"/>
+        <Label x:Name="lblSlot" Content="Slot(Optionnel) :" ToolTip="The EquipmentSlot this AttributeModifier is active on, or null if this modifier is applicable for any slot." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="266,259,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="156"/>
+        <Controls:ButtonControl x:Name="btnAdd" Text="Ajouter" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="266,302,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="427,92,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290" Height="28"/>
+        <ComboBox x:Name="cbxAttribute" HorizontalAlignment="Left" Margin="427,134,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="290" Height="28"/>
+        <TextBox x:Name="tbxValue" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="427,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" Height="28"/>
+        <ComboBox x:Name="cbxOperation" HorizontalAlignment="Left" Margin="427,220,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="180" Height="28"/>
+        <ComboBox x:Name="cbxSlot" HorizontalAlignment="Left" Margin="427,264,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="180" Height="28"/>
+        <Controls:ButtonControl x:Name="btnRem" Text="Retirer" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="266,332,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

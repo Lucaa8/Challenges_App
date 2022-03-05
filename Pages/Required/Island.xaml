@@ -1,0 +1,33 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages.Required"
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.Required.Island"
+      mc:Ignorable="d" 
+      Title="Island" Width="800" Height="420">
+
+    <Grid x:Name="PageIsland">
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Requis(Island) de [C]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Label x:Name="lblRadius" Content="Rayon :" ToolTip="Le rayon(autour du joueur) dans lequel les blocs/entités seront compté(e)s.&#xA;(Si un(e) bloc/entité est en dehors de l'île du joueur, il/elle n'est pas compté(e).)&#xA;//!!\\De grand rayons(50+) peuvent provoquer des lags//!!\\" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="563,91,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="79"/>
+        <TextBox x:Name="tbxRadius" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="647,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <Label x:Name="lblBlocks" Content="Blocs ;" ToolTip="Une liste de x blocs qui devront être contenus dans le rayon spécifié." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="101,91,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="80"/>
+        <ListBox x:Name="boxBlocks" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" VerticalAlignment="Top" Margin="41,129,0,0" Width="200" Height="271" GotFocus="boxBlocks_GotFocus"/>
+        <Label x:Name="lblEntities" Content="Entités ;" ToolTip="Une liste de x entités qui devront être contenues dans le rayon spécifié." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="306,91,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="80"/>
+        <ListBox x:Name="boxEntities" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" VerticalAlignment="Top" Margin="246,129,0,0" Width="200" Height="271" GotFocus="boxEntities_GotFocus"/>
+        <Label x:Name="lblType" Content="Type ;" ToolTip="Un type de materiel ou un type d'entité" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="529,163,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="62"/>
+        <ListBox x:Name="boxType" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" ScrollViewer.HorizontalScrollBarVisibility="Hidden" VerticalAlignment="Top" Margin="451,201,0,0" Width="200" Height="160"/>
+        <Label x:Name="lblCount" Content="Quantité ;" ToolTip="Le nombre requis de ce type" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="670,230,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="100"/>
+        <TextBox x:Name="tbxCount" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="696,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="48" Height="26" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxResearch" Foreground="DarkSlateGray" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="656,333,0,0" TextWrapping="Wrap" Text="Rechercher..." VerticalAlignment="Top" Width="134" Height="28" LostFocus="Research_LostFocus" GotFocus="Research_GotFocus" TextChanged="Research_Changed"/>
+        <Controls:ButtonControl x:Name="btnAdd" Text="Ajouter" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="451,370,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnRem" Text="Retirer" BorderColor="Black" BorderSize="2" HorizontalAlignment="Left" Margin="552,370,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

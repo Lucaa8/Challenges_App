@@ -1,0 +1,73 @@
+﻿<Page x:Class="Challenges_App.Pages.CategorySession"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages"
+      xmlns:Control="clr-namespace:Challenges_App.Controls"
+      mc:Ignorable="d" 
+      Title="CategorySession" Width="800" Height="420">
+
+    <Grid x:Name="PageCategorySession">
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Catégorie : null" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblUUID" ToolTip="Un U'UNIQUE'ID ne peut pas être modifié" Style="{StaticResource lblFont1}" FontSize="30" Content="UUID :" Width="87" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="96,45,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblName" Style="{StaticResource lblFont1}" FontSize="30" Content="Nom :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,85,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDescription" Style="{StaticResource lblFont1}" FontSize="30" Content="Description :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,125,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblActive" Style="{StaticResource lblFont1}" FontSize="30" Content="Actif :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,165,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblColor" Style="{StaticResource lblFont1}" FontSize="30" Content="Couleur :" Width="143" HorizontalContentAlignment="Right" ToolTip="La couleur des verres autour de l'inventaire" HorizontalAlignment="Left" Margin="40,205,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblIcon" Style="{StaticResource lblFont1}" FontSize="30" Content="Icône :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,245,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblIconData" ToolTip="Remplacé par la possibilité de mettre un item plutôt qu'un material en icone" Style="{StaticResource lblFont1}" FontSize="30" Content="Icône Data :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,285,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPage" Style="{StaticResource lblFont1}" FontSize="30" Content="Page :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,325,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSlot" Style="{StaticResource lblFont1}" FontSize="30" Content="Slot :" Width="143" HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="40,365,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblReqChallenges" Style="{StaticResource lblFont1}" FontSize="30" Content="Challenges requis ;" ToolTip="Double clique les challenges que tu veux sélectionner" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="473,165,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="tbxUUID" HorizontalAlignment="Left" IsEnabled="False" Margin="188,50,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="480" Height="30"/>
+        <TextBox x:Name="tbxName" HorizontalAlignment="Left" Margin="188,90,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" Height="30" TextChanged="Name_Changed"/>
+        <TextBox x:Name="tbxDescription" HorizontalAlignment="Left" Margin="188,130,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="480" Height="30"/>
+        <CheckBox x:Name="cbActive" Content="Non" IsChecked="False" Height="15" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="188,172,0,0" VerticalAlignment="Top" Click="cbActive_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.8" ScaleY="1.8" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <ComboBox x:Name="cbxColor" HorizontalAlignment="Left" SelectedIndex="0" Style="{StaticResource lblFont1}" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="188,210,0,0" VerticalAlignment="Top" Width="106" Height="30">
+            <ComboBoxItem x:Name="BLACK_STAINED_GLASS_PANE" Content="Noir"/>
+            <ComboBoxItem x:Name="BLUE_STAINED_GLASS_PANE" Content="Bleu"/>
+            <ComboBoxItem x:Name="BROWN_STAINED_GLASS_PANE" Content="Brun"/>
+            <ComboBoxItem x:Name="CYAN_STAINED_GLASS_PANE" Content="Cyan"/>
+            <ComboBoxItem x:Name="GRAY_STAINED_GLASS_PANE" Content="Gris"/>
+            <ComboBoxItem x:Name="GREEN_STAINED_GLASS_PANE" Content="Vert"/>
+            <ComboBoxItem x:Name="LIGHT_BLUE_STAINED_GLASS_PANE" Content="Bleu clair"/>
+            <ComboBoxItem x:Name="LIGHT_GRAY_STAINED_GLASS_PANE" Content="Gris clair"/>
+            <ComboBoxItem x:Name="LIME_STAINED_GLASS_PANE" Content="Lime"/>
+            <ComboBoxItem x:Name="MAGENTA_STAINED_GLASS_PANE" Content="Magenta"/>
+            <ComboBoxItem x:Name="ORANGE_STAINED_GLASS_PANE" Content="Orange"/>
+            <ComboBoxItem x:Name="PINK_STAINED_GLASS_PANE" Content="Rose"/>
+            <ComboBoxItem x:Name="PURPLE_STAINED_GLASS_PANE" Content="Violet"/>
+            <ComboBoxItem x:Name="RED_STAINED_GLASS_PANE" Content="Rouge"/>
+            <ComboBoxItem x:Name="WHITE_STAINED_GLASS_PANE" Content="Blanc"/>
+            <ComboBoxItem x:Name="YELLOW_STAINED_GLASS_PANE" Content="Jaune"/>
+        </ComboBox>
+        <ComboBox x:Name="cbxIcon" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="188,250,0,0" VerticalAlignment="Top" Width="171" Height="30"/>
+        <Rectangle x:Name="rectReload" Cursor="Hand" ToolTip="Actualise les items dans le menu déroulant." HorizontalAlignment="Left" Height="38" Margin="364,246,0,0" VerticalAlignment="Top" Width="38" MouseEnter="rectReload_Enter" MouseLeave="rectReload_Leave" MouseUp="rectReload_Click" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform x:Name="rectReloadRotate" Angle="0"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBox x:Name="tbxIconData" IsEnabled="False" HorizontalAlignment="Left" Margin="188,290,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="43" Height="30" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxPage" HorizontalAlignment="Left" Margin="188,330,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="43" Height="30" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <TextBox x:Name="tbxSlot" HorizontalAlignment="Left" Margin="188,370,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="43" Height="30" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
+        <ListBox x:Name="boxReqChallenges" SelectionMode="Single" Margin="477,210,0,0" Width="200" Height="190" Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDoubleClick="boxDoubleClick"/>
+        
+        <TextBox x:Name="tbxResearch" HorizontalAlignment="Left" Margin="350,370,0,0" Style="{StaticResource lblFont1}" FontSize="20" TextWrapping="Wrap" Foreground="DarkSlateGray" Text="Rechercher..." VerticalContentAlignment="Center" VerticalAlignment="Top" Width="122" Height="30" LostFocus="tbxResearch_LostFocus" GotFocus="tbxResearch_GotFocus" TextChanged="tbxResearch_TextChanged"/>
+        
+        <Control:ButtonControl x:Name="btnPush" Text="Envoyer" BorderColor="Black" BorderSize="3" HorizontalAlignment="Left" Margin="690,370,0,0" VerticalAlignment="Top"/>
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40, 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Rectangle x:Name="btnSave" Cursor="Hand" ToolTip="Clique ici pour sauvegarder cet item dans un fichier" HorizontalAlignment="Left" Margin="755,7,0,0" VerticalAlignment="Top" Width="35" Height="35" MouseEnter="btnSave_Enter" MouseLeave="btnSave_Leave" MouseUp="btnSave_Click"/>
+    </Grid>
+</Page>

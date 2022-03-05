@@ -1,0 +1,54 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:Controls="clr-namespace:Challenges_App.Controls" x:Class="Challenges_App.Pages.MainMenu"
+      mc:Ignorable="d" 
+      Title="MainMenu" Width="800" Height="420">
+    <Grid x:Name="PageMainMenu">
+        <RichTextBox x:Name="rtbLogs" Background="LightGray" Margin="0,288,0,0" Width="786" Height="105" Cursor="Arrow" SelectionBrush="#FF05D700" BorderBrush="Black" FontSize="14">
+            <FlowDocument AllowDrop="False" FontFamily="Courier New" Cursor="Arrow" Block.LineHeight="2" Focusable="False">
+                <Paragraph/>
+            </FlowDocument>
+            <RichTextBox.Style>
+                <Style TargetType="{x:Type RichTextBox}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                                <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="BorderBrush" TargetName="border" Value="Black"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </RichTextBox.Style>
+        </RichTextBox>
+        <ListBox x:Name="boxCategories" Style="{StaticResource lblFont1}" FontSize="18" AllowDrop="True" Margin="399,35,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="160" Height="255" LostFocus="Box_Lostfocus" DragDrop.Drop="Box_Drop" MouseDoubleClick="BoxCat_DblClick"/>
+        <ListBox x:Name="boxChallenges" Style="{StaticResource lblFont1}" FontSize="18" AllowDrop="True" Margin="0,35,51,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="160" Height="255" LostFocus="Box_Lostfocus" DragDrop.Drop="Box_Drop" MouseDoubleClick="BoxCha_DblClick"/>
+        <Label x:Name="lblCategoriesTitle" Content="[C] Catégories" Style="{StaticResource lblFont1}" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="399,0,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label x:Name="lblChallengesTitle" Content="[C] Challenges" Style="{StaticResource lblFont1}" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="0,0,51,0" VerticalAlignment="Top" Width="160"/>
+        <Label x:Name="lblChallengesStatutInfo" Content="Statut des challenges:" Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" Margin="9,20,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblChallengesStatut" Content="[S]" Foreground="Black" Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" Margin="171,20,0,0" VerticalAlignment="Top"/>
+        <Controls:ButtonControl x:Name="btnToggleChallengesState" HorizontalAlignment="Left" Text="Toggle" BorderColor="Black" Margin="262,20,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblResearchInfo" Content="Rechercher" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxResearchField" HorizontalAlignment="Left" Margin="102,60,0,0" Style="{StaticResource lblFont1}" FontSize="17" Foreground="DarkSlateGray" TextWrapping="Wrap" Text="Texte à trouver..." VerticalContentAlignment="Center" VerticalAlignment="Top" Width="260" Height="30" TextChanged="tbxResearchField_TextChanged" LostFocus="tbx_Research_Lostfocus" GotFocus="tbx_Research_Gotfocus"/>
+        <Controls:ButtonControl x:Name="btnItemsManager" HorizontalAlignment="Left" Text="Items" BorderColor="Black" Margin="120,102,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblItemsManagerInfo" Content="Accéder aux " Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblConnStateInfo" Content="État de la connexion avec le serveur;" Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblConnLatencyInfo" Content=" - Latence:" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="17" Margin="16,201,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblConnLatency" Content="-1ms" Foreground="Black" Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" Margin="86,199,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblConnKeepAliveInfo" Content=" - Dernier échange il y a:" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="17" Margin="16,225,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblConnKeepAlive" Content="-1s" Foreground="Black" Style="{StaticResource lblFont1}" FontSize="20" HorizontalAlignment="Left" Margin="174,223,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

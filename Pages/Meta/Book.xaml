@@ -1,0 +1,54 @@
+﻿<Page x:Class="Challenges_App.Pages.Meta.Book"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Challenges_App.Pages.Meta"
+      mc:Ignorable="d" 
+      Title="Book" Width="800" Height="420">
+
+    <Grid x:Name="PageBook">
+        <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="ItemMeta(Book) de [I]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Label x:Name="lblBookTitle" Content="Titre :" ToolTip="The title of the book." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="74,110,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="118"/>
+        <Label x:Name="lblAuthor" Content="Auteur :" ToolTip="The author of the book." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="74,193,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="118"/>
+        <Label x:Name="lblGeneration" Content="Génération : " ToolTip="Represents the generation (or level of copying) of a written book.&#xA;TATTERED	Unused; unobtainable by players. (Can't be copied)&#xA;ORIGINAL Book written into a book-and-quill. (Can be copied)&#xA;COPY_OF_ORIGINAL Book that was copied from an original. (Can be copied)&#xA;COPY_OF_COPY Book that was copied from a copy of an original. (Can't be copied)" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="74,268,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="118"/>
+        <Label x:Name="lblPages" Content="Pages :" ToolTip="The pages in the book." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="431,48,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="69"/>
+        <TextBox x:Name="tbxBookTitle" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="197,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173" Height="28"/>
+        <TextBox x:Name="tbxAuthor" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="197,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="173" Height="28"/>
+        <ComboBox x:Name="cbxGeneration" SelectedIndex="0" HorizontalAlignment="Left" Margin="197,273,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="173" Height="28">
+            <ComboBoxItem Content="TATTERED"/>
+            <ComboBoxItem Content="ORIGINAL"/>
+            <ComboBoxItem Content="COPY_OF_ORIGINAL"/>
+            <ComboBoxItem Content="COPY_OF_COPY"/>
+        </ComboBox>
+        <RichTextBox x:Name="rtbPages" Margin="500,59,0,0" Width="241" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource Minecraft}" FontSize="20" Height="342">
+            <FlowDocument Block.LineHeight="2">
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Polygon x:Name="btnPrevPage" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="463,368,0,0" Width="40" Height="40" MouseEnter="btnPrev_MouseEnter" MouseLeave="btnPrev_MouseLeave" MouseUp="btnPrev_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Polygon x:Name="btnNextPage" Cursor="Hand" Points="0,0 0,40 40,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="746,368,0,0" Width="40" Height="40" MouseEnter="btnNext_MouseEnter" MouseLeave="btnNext_MouseLeave" MouseUp="btnNext_Click">
+            <Polygon.RenderTransform>
+                <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+            </Polygon.RenderTransform>
+        </Polygon>
+        <Label x:Name="lblPage" Content="(1/1)" HorizontalContentAlignment="Right" ToolTip="La page actuelle affichée dans la box." Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="408,75,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="92"/>
+        <CheckBox x:Name="cbFormat" ToolTip="Lorsque le format est coché, le formattage du texte devient exactement comme il le serait dans un livre!&#xA;Le nombres de caractères max. par ligne ainsi que le nombre de lignes max. par pages sont respectés!" Content="Format" IsChecked="False" Height="14" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="15" Margin="408,118,0,0" VerticalAlignment="Top" Click="cbFormat_Click">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <Rectangle x:Name="rectRemove" ToolTip="Retirer la page courante" HorizontalAlignment="Left" Height="35" Margin="465,139,0,0" Cursor="Hand" VerticalAlignment="Top" Width="35" MouseEnter="Remove_Enter" MouseLeave="Remove_Leave" MouseUp="Remove_Click"/>
+    </Grid>
+</Page>
