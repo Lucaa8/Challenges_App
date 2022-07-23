@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using Challenges_App.Packet;
@@ -17,7 +19,8 @@ namespace Challenges_App
         public static FontFamily MC_Bold = new FontFamily(new Uri("pack://application:,,,/"), "./Fonts/MC_Bold/#Minecraft");
         public static FontFamily MC_Italic = new FontFamily(new Uri("pack://application:,,,/"), "./Fonts/MC_Italic/#Minecraft");
         public static FontFamily MC_Bold_Italic = new FontFamily(new Uri("pack://application:,,,/"), "./Fonts/MC_Bold_Italic/#Minecraft");
-        public static Version v = new Version(1, 1, 1);
+        private static string LastIPFile = "config";
+        public static Version v = new Version(1, 1, 2);
         public MainWindow()
         {
             Ressource.initTypes();
@@ -46,6 +49,11 @@ namespace Challenges_App
         {
             Instance = this;
             packetManager = null;
+            if (!File.Exists(LastIPFile))
+            {
+                File.Create(LastIPFile).Close();
+                updateLastIP("localhost:25575");
+            }
             if (debug)
             {
                 menu = new Pages.MainMenu();
@@ -53,8 +61,23 @@ namespace Challenges_App
             }
             else
             {
+                string? lastIp;
+                using (StreamReader sr = File.OpenText(LastIPFile))
+                {
+                    lastIp = sr.ReadLine();
+                }
                 menu = null;
-                MainFrame.Navigate(new Pages.Connect());
+                MainFrame.Navigate(new Pages.Connect(lastIp));
+            }
+        }
+
+        public void updateLastIP(string lastip)
+        {
+            using (FileStream fs = File.OpenWrite(LastIPFile))
+            {
+                fs.SetLength(0); //clear old content
+                byte[] info = new UTF8Encoding(true).GetBytes(lastip);
+                fs.Write(info, 0, info.Length);
             }
         }
     }

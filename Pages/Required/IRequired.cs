@@ -12,7 +12,7 @@ namespace Challenges_App.Pages.Required
 
         public static IRequired? loadRequired(Required type, ChallengeSession session, JObject? json)
         {
-            Type? t = Type.GetType("Challenges.Pages.Required." + type.ToString());
+            Type? t = Type.GetType("Challenges_App.Pages.Required." + type.ToString());
             if (t != null)
             {
                 if (json == null)

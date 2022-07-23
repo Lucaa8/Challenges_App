@@ -25,7 +25,7 @@
             <Label x:Name="lblAddrIP" Visibility="Hidden" ToolTip="Modifier l'adresse IP du serveur (P.ex: localhost:25575)" Content="Adresse IP" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Center" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Height="32" Margin="56,104,0,0"/>
         </Grid>
         <Label x:Name="lblInfo" Content="Version {V} by Luca008" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Right" FontSize="18" HorizontalAlignment="Right" Margin="0,378,10,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="266" Height="32"/>
-        <Label x:Name="lblSplash" Content="SkyWhale" Foreground="#FFFDFF00" Style="{StaticResource Minecraft}" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,100,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <Label x:Name="lblSplash" Content="CryingT8" Foreground="#FFFDFF00" Style="{StaticResource Minecraft}" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="543,100,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform x:Name="lblSplashScale" ScaleX="1" ScaleY="1"/>

@@ -207,7 +207,7 @@ namespace Challenges_App.Pages.Required
             }
             else
             {
-                if (((TextBox)sender).Text.Length > 3)
+                if (((TextBox)sender).Text.Length > 5)
                 {
                     e.Handled = true;
                 }

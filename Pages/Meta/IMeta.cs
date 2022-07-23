@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Diagnostics;
 
 namespace Challenges_App.Pages.Meta
 {
@@ -35,7 +34,7 @@ namespace Challenges_App.Pages.Meta
 
         public static IMeta? loadMeta(Item parent, Meta meta, JObject? json)
         {
-            Type? type = Type.GetType("Challenges.Pages.Meta." + meta.ToString());
+            Type? type = Type.GetType("Challenges_App.Pages.Meta." + meta.ToString());
             if (type != null)
             {
                 if (json == null)

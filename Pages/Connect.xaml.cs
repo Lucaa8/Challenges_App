@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,11 +14,12 @@ namespace Challenges_App.Pages
     public partial class Connect : Page
     {
         private Boolean animate = true;
-        public Connect()
+        public Connect(string? lastIp)
         {
             InitializeComponent();
             lblAnimation();
             lblInfo.Content = lblInfo.Content.ToString().Replace("{V}", MainWindow.v.ToString());
+            tbxAddrIP.Text = lastIp==null?"localhost:25575":lastIp;
             btnAccess.addMouseClick((c) =>
             {
                 if(tbxKey.Text.Length == 0)
@@ -44,6 +44,7 @@ namespace Challenges_App.Pages
                     MessageBox.Show("Le port spécifié n'est pas valide. Il doit se situer entre 1024 et 65535", "Error invalid port");
                     return;
                 }
+                MainWindow.Instance.updateLastIP(ip + ":" + port);
                 SocketManager? manager = MainWindow.Instance.packetManager;
                 if(manager == null || !manager.isOnline)
                 {
