@@ -33,6 +33,7 @@ namespace Challenges_App.Controls
 
         private Boolean enabled = true;
         private Boolean animation = false;
+        private Boolean isAnimated = false;
 
         public ButtonControl()
         {
@@ -103,7 +104,7 @@ namespace Challenges_App.Controls
                 if (!value.Equals(animation))
                 {
                     animation = value;
-                    if (animation)
+                    if (animation && !IsAnimated)
                     {
                         runPartAnimation("group_Top", TopBorderPoints, 9);
                     }
@@ -113,9 +114,18 @@ namespace Challenges_App.Controls
             get { return animation; }
         }
 
+        public Boolean IsAnimated
+        {
+            get { return isAnimated; }
+        }
+
         private void runNext(String now, int shift)
         {
-            if (!Animation) return;
+            if (!Animation)
+            {
+                isAnimated = false;
+                return;
+            }
             if (now.Equals("group_Top"))
             {
                 runPartAnimation("group_Right", RightBorderPoints, shift);
@@ -137,6 +147,7 @@ namespace Challenges_App.Controls
         private async void runPartAnimation(String geometry, List<EllipseGeometry> points, int shift)
         {
             GeometryGroup gg = getGeometry(geometry);
+            isAnimated = true;
             for (int i = 0; i < points.Count + shift; i++)
             {
                 if (i >= shift)

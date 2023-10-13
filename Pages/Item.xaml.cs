@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 using Microsoft.Win32;
 using System.IO;
 using System.Text;
+using System.Windows.Shapes;
 
 namespace Challenges_App.Pages
 {
@@ -151,6 +152,10 @@ namespace Challenges_App.Pages
             if (json.ContainsKey("Material"))
             {
                 tbxMaterial.Text = json.Value<String>("Material");
+                if(tbxMaterial.Text.Length > 20)
+                {
+                    rectOverlayMaterial.ToolTip = tbxMaterial.Text;
+                }
             }
             if (json.ContainsKey("Name"))
             {
@@ -519,6 +524,7 @@ namespace Challenges_App.Pages
                 if(mat != null)
                 {
                     tbxMaterial.Text = mat.ToString();
+                    rectOverlayMaterial.ToolTip = (tbxMaterial.Text.Length > 20) ? mat.ToString() : null;
                 }
             });
         }
@@ -540,6 +546,24 @@ namespace Challenges_App.Pages
             g.Name = "promptMaterialGrid";
             g.Background = Brushes.DarkGray;
             w.Content = g;
+
+            Rectangle rectCross = new Rectangle();
+            rectCross.Name = "rectCross";
+            rectCross.Width = 35;
+            rectCross.Height = 35;
+            rectCross.HorizontalAlignment = HorizontalAlignment.Right;
+            rectCross.VerticalAlignment = VerticalAlignment.Top;
+            rectCross.Margin = new Thickness(0, 5, 5, 0);
+            rectCross.Cursor = Cursors.Hand;
+            Ressource.fillRect(rectCross, Ressource.getImage(Files.ResxFile.Close));
+            rectCross.MouseEnter += (o, e) => Ressource.fillRect(rectCross, Ressource.getImage(Files.ResxFile.CloseHover));
+            rectCross.MouseLeave += (o, e) => Ressource.fillRect(rectCross, Ressource.getImage(Files.ResxFile.Close));
+            rectCross.MouseUp += (o, e) =>
+            {
+                callback(null);
+                w.Close();
+            };
+
             Label lblChoose = new Label();
             lblChoose.Name = "lblChoose";
             lblChoose.Content = "Choisir un matériau";
@@ -639,11 +663,13 @@ namespace Challenges_App.Pages
                     }
                 }
             };
+            g.Children.Add(rectCross);
             g.Children.Add(lblChoose);
             g.Children.Add(cbxMaterial);
             g.Children.Add(tbxSearch);
             g.Children.Add(btnSave);
             w.Show();
+            tbxSearch.Focus();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Challenges_App.Pages.Meta
 {
@@ -475,6 +476,24 @@ namespace Challenges_App.Pages.Meta
             g.Name = "promptColorGrid";
             g.Background = Brushes.DarkGray;
             w.Content = g;
+
+            Rectangle rectCross = new Rectangle();
+            rectCross.Name = "rectCross";
+            rectCross.Width = 35;
+            rectCross.Height = 35;
+            rectCross.HorizontalAlignment = HorizontalAlignment.Right;
+            rectCross.VerticalAlignment = VerticalAlignment.Top;
+            rectCross.Margin = new Thickness(0, 5, 5, 0);
+            rectCross.Cursor = Cursors.Hand;
+            Ressource.fillRect(rectCross, Ressource.getImage(Files.ResxFile.Close));
+            rectCross.MouseEnter += (o, e) => Ressource.fillRect(rectCross, Ressource.getImage(Files.ResxFile.CloseHover));
+            rectCross.MouseLeave += (o, e) => Ressource.fillRect(rectCross, Ressource.getImage(Files.ResxFile.Close));
+            rectCross.MouseUp += (o, e) =>
+            {
+                callback(null);
+                w.Close();
+            };
+
             Label lblChoose = new Label();
             lblChoose.Name = "lblChoose";
             lblChoose.Content = "Choisir une couleur";
@@ -545,6 +564,7 @@ namespace Challenges_App.Pages.Meta
                     }
                 }
             };
+            g.Children.Add(rectCross);
             g.Children.Add(lblChoose);
             g.Children.Add(cbxColor);
             g.Children.Add(btnSave);

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,23 +51,29 @@ namespace Challenges_App.Pages
                 {
                     manager = new SocketManager(ip, port);
                 }
-                manager.queuePacket(new LoginPacket(tbxKey.Text), (packet) =>
+                if (manager.isOnline)
                 {
-                    LoginPacket lp = (LoginPacket)packet;
-                    if (!lp.isAllowed())
+                    manager.queuePacket(new LoginPacket(tbxKey.Text), (packet) =>
                     {
-                        MessageBox.Show("Le serveur n'a pas autorisé l'accès à cette ressource.\nRaison: "+lp.getReason(), "Error disallowed", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else
-                    {
-                        manager.isSessionValid = true;
-                        animate = false;
-                        MainWindow.Instance.menu = new MainMenu();
-                        MainWindow.Instance.MainFrame.Navigate(MainWindow.Instance.menu);
-                    }
-                });
+                        LoginPacket lp = (LoginPacket)packet;
+                        if (!lp.isAllowed())
+                        {
+                            MessageBox.Show("Le serveur n'a pas autorisé l'accès à cette ressource.\nRaison: " + lp.getReason(), "Error disallowed", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                        else
+                        {
+                            manager.isSessionValid = true;
+                            animate = false;
+                            btnAccess.Animation = false;
+                            MainWindow.Instance.menu = new MainMenu();
+                            MainWindow.Instance.MainFrame.Navigate(MainWindow.Instance.menu);
+                        }
+                    });
+                }
                 MainWindow.Instance.packetManager = manager;
             });
+            btnAccess.addMouseEnter(c => btnAccess.Animation = true);
+            btnAccess.addMouseLeave(c => btnAccess.Animation = false);
         }
 
         private String? getIP()

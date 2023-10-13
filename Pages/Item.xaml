@@ -16,7 +16,7 @@
         </Polygon>
         <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="Item : [I]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <Label x:Name="lblID" Content="ID :" ToolTip="Un identifieur NBTTAG sous forme de string (Non-visible par les joueurs)" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="73,48,0,0" VerticalAlignment="Top" Height="37" Width="44"/>
-        <Label x:Name="lblMaterial" Cursor="Hand" ToolTip="Le type d'item (Clique moi pour accéder au browser de matériaux)" Content="Materiel :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="279,48,0,0" VerticalAlignment="Top" Height="37" Width="94" MouseUp="onMaterialClick"/>
+        <Label x:Name="lblMaterial" ToolTip="Le type d'item" Content="Materiel :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="279,48,0,0" VerticalAlignment="Top" Height="37" Width="94"/>
         <Label x:Name="lblName" Content="Nom :" ToolTip="Le displayname de l'item" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="576,48,0,0" VerticalAlignment="Top" Height="37" Width="61"/>
         <Label x:Name="lblLore" Content="Lore :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="56,90,0,0" VerticalAlignment="Top" Height="38" Width="61"/>
         <Label x:Name="lblEnchants" Content="Ench. :" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="48,0,0,0" VerticalAlignment="Center" Height="36" Width="69"/>
@@ -27,6 +27,7 @@
         <Label x:Name="lblInvulnerable" Content="Invulnérable :" Style="{StaticResource lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="560,340,0,0" VerticalAlignment="Top" Height="36" Width="133"/>
         <TextBox x:Name="tbxID" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="122,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="144" Height="28"/>
         <TextBox x:Name="tbxMaterial" IsEnabled="False" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="373,52,0,0" TextWrapping="Wrap" Text="STONE" VerticalAlignment="Top" Width="190" Height="28"/>
+        <Rectangle x:Name="rectOverlayMaterial" Fill="Transparent" Cursor="Hand" HorizontalAlignment="Left" Height="28" Margin="373,52,0,0" VerticalAlignment="Top" Width="190" MouseUp="onMaterialClick"/>
         <TextBox x:Name="tbxName" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="637,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149" Height="28"/>
         <RichTextBox x:Name="rtbLore" Margin="122,90,14,232" Style="{StaticResource lblFont1}" FontSize="20">
             <FlowDocument Block.LineHeight="2">
@@ -43,6 +44,8 @@
             <ListBoxItem Tag="HIDE_PLACED_ON" Content="[] Hide placed on"/>
             <ListBoxItem Tag="HIDE_POTION_EFFECTS" Content="[] Hide potions"/>
             <ListBoxItem Tag="HIDE_UNBREAKABLE" Content="[] Hide unbreakable"/>
+            <ListBoxItem Tag="HIDE_DYE" Content="[] Hide dye (1.20)"/>
+            <ListBoxItem Tag="HIDE_ARMOR_TRIM" Content="[] Hide trim (1.20)"/>
         </ListBox>
         <Controls:ButtonControl x:Name="btnAttributes" HorizontalAlignment="Left" Text="Attributs" BorderColor="Black" BorderSize="2" Margin="690,237,0,0" VerticalAlignment="Top"/>
         <Controls:ButtonControl x:Name="btnMeta" HorizontalAlignment="Left" Text="Meta perso." BorderColor="Black" BorderSize="2" ToolTip="Têtes, Potions, Armures en cuir, TropicalBucket, Livres" Margin="690,267,0,0" VerticalAlignment="Top"/>
@@ -58,6 +61,7 @@
         <Controls:ButtonControl x:Name="btnEnchRem" HorizontalAlignment="Left" ToolTip="Retirer l'enchantement séléctionné de la liste" Text="Retirer" BorderColor="Black" BorderSize="2" Margin="276,270,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxEnchLevel" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="20" Margin="279,229,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="50" Height="28" PreviewTextInput="NumericInput" CommandManager.PreviewExecuted="Executed"/>
         <ComboBox x:Name="cbxEnchName" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="19" Margin="279,199,0,0" VerticalAlignment="Top" Width="165" Height="26" VerticalContentAlignment="Center">
+            <!-- Le tag est la Minecraft NamespacedKey de l'enchantement. Dans Spigot elle peut être trouvée dans org.bukkit.enchantments.Enchantment -->
             <ComboBoxItem Tag="aqua_affinity" Content="Aqua Affinity"/>
             <ComboBoxItem Tag="bane_of_arthropods" Content="Bane of Arthropods"/>
             <ComboBoxItem Tag="blast_protection" Content="Blast Protection"/>
@@ -94,6 +98,7 @@
             <ComboBoxItem Tag="smite" Content="Smite"/>
             <ComboBoxItem Tag="soul_speed" Content="Soul Speed"/>
             <ComboBoxItem Tag="sweeping" Content="Sweeping Edge"/>
+            <ComboBoxItem Tag="swift_sneak" Content="Swift Sneak"/>
             <ComboBoxItem Tag="thorns" Content="Thorns"/>
             <ComboBoxItem Tag="unbreaking" Content="Unbreaking"/>
         </ComboBox>
