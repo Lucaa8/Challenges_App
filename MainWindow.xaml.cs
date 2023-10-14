@@ -20,7 +20,7 @@ namespace Challenges_App
         public static FontFamily MC_Italic = new FontFamily(new Uri("pack://application:,,,/"), "./Fonts/MC_Italic/#Minecraft");
         public static FontFamily MC_Bold_Italic = new FontFamily(new Uri("pack://application:,,,/"), "./Fonts/MC_Bold_Italic/#Minecraft");
         private static string LastIPFile = "config";
-        public static Version v = new Version(1, 1, 3);
+        public static Version v = new Version(1, 2, 0);
         public MainWindow()
         {
             Ressource.initTypes();
