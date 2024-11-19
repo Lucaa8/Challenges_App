@@ -17,6 +17,9 @@ The idea behind this application and every design concept is from me.
 ## Implementation
 I handled the implementation myself, based on what I planned during the conception. However, the application has been extensively used from start to finish by [BlackT8](https://github.com/BlackT8), which greatly facilitated the testing and bug-fixing stages.
 
+## Disclamer
+To fully understand the concepts covered in the application, it would be helpful for the reader to have a basic understanding of how challenges work. These concepts will not be re-explained here; only how the plugin is modified from the C# interface will be discussed. For more details about the plugin's functionality, please refer to the [plugin README](https://github.com/Lucaa8/Challenges_Plugin/blob/main/README.md).
+
 ## Functionalities
 To summarize, the application allows for modifying the current status of challenges (active/inactive), viewing and loading any existing category or challenge on the server. It can create, modify, or delete very complex items (Enchantments, Attributes, Meta like Potions, Books, etc.). Additionally, it allows for creating a completely new challenge/category, modifying it, and deleting it. It is even possible to download the final JSON content of an item or import a challenge or category using this JSON content. All changes can be pushed directly to the server without reloading/restarting, which helps avoid excessive maintenance periods and allows for immediate in-game visualization of changes when modifications are made by staffs.
 
@@ -171,5 +174,16 @@ This section will showcase the configuration of each prerequisite in a simple an
 |:--:|:--:| 
 | *Adding money, experience and island levels to the requirements of the challenge.* | *In game result* |
 
-
 #### Rewards
+Pour la section des récompenses, nous allons passer en revue les éléments importants tels que les concepts de First et Next Reward et les items. Les messages et commande seront mis de côtés étant donné qu'ils ne sont pas des aspects spécialement interessants et assez basiques. Trouvez ci-dessous une illustration de la création d'une récompense pour l'un de nos défi démonstration, puis du rendu en jeu.
+
+| ![rew_add](https://github.com/user-attachments/assets/a71aeb77-bca0-470b-8ddd-0660150af5cc) |
+|:--:| 
+| *Adding some already created items to the reward pool of our first demo challenge. Setting money and experience too. For the first completion reward and the next ones* | 
+
+| ![challenge_rew_proof](https://github.com/user-attachments/assets/73c6fc56-c117-4826-900e-60dc44a776f8) |
+|:--:| 
+| *Our challenge is finally ready. How beautiful ? We even got the 50% sword drop !* | 
+
+## Conclusion
+
