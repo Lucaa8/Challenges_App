@@ -42,6 +42,34 @@ It is important to note that if the application crashes unexpectedly or if the u
 | *An admin execute this command on the Minecraft server* | *The connected user is disconnected and see the reason specified* |
 
 ### Main Page
+When an aggregated user connects, the first thing the client will do is fetch the current state of the challenges (active, inactive?) and then retrieve the list of names of existing categories and challenges. Nothing more. It would be too time-consuming to load each category, challenge, and item individually without being sure that the user wants to modify them. The application will then update this information on the graphical interface (which is non-blocking during transfers with the server).
+
+| ![Challenges Editor 19_11_2024 00_35_51](https://github.com/user-attachments/assets/d5377ed6-148f-479f-8312-d8319132c8bd) |
+|:--:| 
+| *Menu page* |
+
+On this page, it is possible to view:
+- The current state of the challenges and modify it directly from the application (In case the staff no longer wants players to use the challenges while making major modifications).
+- Filter categories or challenges by their name
+- A button to access item management.
+- The connection status with the server (ping and time of the last packet exchange).
+- A panel displaying various actions the user performs within the application and incoming/outgoing packets with the server.
+- Finally, the list of categories and challenges currently present in the plugin.
+
+The user can then click on an existing category or challenge, which will load the relevant information about that category or challenge from the server (such as its description, whether it is active, its icon, etc.), and display it on a dedicated page for that category or challenge. (For a detailed description of these pages, see the next sections, namely **Categories** and **Challenges**). The user can also click on "New Category" or "New Challenge," which will create a **local** new element. They can then modify it and send it to the server. Finally, it is possible to delete an item by right-clicking on its name.
+
+| ![editor_create_challenge](https://github.com/user-attachments/assets/f95847f8-ddd9-4740-9455-f951dd21693f) |
+|:--:| 
+| *Create a challenge by double clicking on nouveau challenge, then you can find it in the list and edit it* |
+
+| ![editor_delete_challenge](https://github.com/user-attachments/assets/665ee88d-893d-4b16-982f-f806f8984d43) | ![editor_del_popup](https://github.com/user-attachments/assets/2ab19673-b36a-4bab-a625-b5e9c235eb61) |
+|:--:|:--:| 
+| *Delete an element by right clicking it (the confirmation popup did not show on the record)* | *The confirmation popup* |
+
+
+| ![editor_del_challenge_fail](https://github.com/user-attachments/assets/5a6422f9-34ec-4b2c-bee3-dac4ff854490) |
+|:--:| 
+| *Cannot delete a non empty category* |
 
 ### Items Creation
 
