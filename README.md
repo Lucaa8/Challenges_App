@@ -72,6 +72,44 @@ The user can then click on an existing category or challenge, which will load th
 | *Cannot delete a non empty category* |
 
 ### Items Creation
+The creation of items is arguably the most complex part of the application, and it will not be possible to demonstrate everything. However, every effort will be made to help the reader understand the importance and usefulness of this section. In Minecraft, creating complex items manually can be very time-consuming and tedious, even more so in JSON configuration files. For this reason, the application includes several complete pages to quickly create specific and complex items and assign them directly to challenges. 
+
+Items are used in multiple contexts:
+- As the icon for a category or challenge.
+- As prerequisites for completing an "inventory" challenge.
+- As rewards for a challenge.
+
+For this reason, throughout the illustrations, you will see dropdown lists that allow users to select items. When a user loads a category or a challenge, all items associated with that element are fetched from the server and added locally. This way, the user can modify or delete them if needed. 
+
+The small blue spinning button next to the dropdown lists is a refresh button that updates the list with all newly created items (locally or fetched from the server).
+
+| ![item_create](https://github.com/user-attachments/assets/41f1ccae-2bd7-4f97-bf14-11e2e02720f6) | 
+|:--:| 
+| *Create a new local item (the name you put here will appear in drop-down lists later in the app)* | 
+
+| ![item_material](https://github.com/user-attachments/assets/dd61b01d-ca84-44c7-9307-0274f90721fa) |
+|:--:| 
+| *No need to learn by heart the 1000 Minecraft material list, this little window will help you!* | 
+
+| ![item_enchants](https://github.com/user-attachments/assets/e2195abe-5dcc-4642-92c2-5a5879a64252) |
+|:--:| 
+| *Keep track of your item's enchantments and edit them in few clicks* | 
+
+| ![item_flags](https://github.com/user-attachments/assets/6dd52b63-4ef6-4732-9358-8e39002f814a) |
+|:--:| 
+| *Just toggle all the existings Minecraft flags on your item by double clicking this list!* | 
+
+| ![item_attributes](https://github.com/user-attachments/assets/d7d28bae-93de-4fe6-a4ee-72ddf17c0c49) |
+|:--:| 
+| *Add infinite attributes on your item and edit them in 2 clicks, who told you attributes are boring to create?* | 
+
+| ![item_meta_1](https://github.com/user-attachments/assets/10d0e7a7-46ce-4baf-b975-c874bb2f9cf4) | ![item_meta_2](https://github.com/user-attachments/assets/3be9bd50-7db2-42b7-8563-540fbee74007) |
+|:--:|:--:| 
+| *Preview your Leather armor's color just by looking the app (Yeah the item is named potion... my bad)* | *Write a really nice book and preview the Minecraft result by toggling one checkbox, do you like Harry Potter?* |
+
+| ![item_add](https://github.com/user-attachments/assets/1353e1bc-7de5-4aec-a45e-f1e21371fc8b) | ![acacia_book](https://github.com/user-attachments/assets/4f343b46-dc47-4449-b409-da78a82b3ac9) |
+|:--:|:--:| 
+| *Finally! Just add your beautiful item in any challenge just by opening a dropdown-list* | *Here is the in game result* |
 
 ### Categories
 
