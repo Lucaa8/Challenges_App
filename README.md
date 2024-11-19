@@ -112,5 +112,64 @@ The small blue spinning button next to the dropdown lists is a refresh button th
 | *Finally! Just add your beautiful item in any challenge just by opening a dropdown-list* | *Here is the in game result* |
 
 ### Categories
+A category contains the following information:
+- **UUID**: All JSON content is stored in a file named after the UUID of the category followed by `.json`. The UUID is chosen randomly during creation and cannot be changed.
+- **Name**: Can include spaces and special characters, as it is not used as an identifier.
+- **Description**: Similar to the name but supports color codes for styling.
+- **Active Status**: Indicates whether the category is active or not. Inactive categories are still visible in-game but appear grayed out.
+- **Glass Pane Color**: Specifies the color of the glass pane surrounding the inventory when viewing challenges.
+- **Icon**: An item created in the app, displayed in-game as the "logo" of the category.
+- **Icon Data**: Previously stored separately, now embedded directly in the item (deprecated).
+- **Page and Slot**: Defines where the category icon will appear within the main menu inventory.
+- **List of Required Challenges**: A list of challenges that must be completed to unlock this category. This should not be confused with the list of challenges hosted within the category, which is defined elsewhere.
+
+| ![category_page](https://github.com/user-attachments/assets/07e894d8-62ea-4ec4-9cb6-dc057814c82d) | ![cat_demo](https://github.com/user-attachments/assets/074c3888-337b-49ec-a404-ba1fb3c8aca2) |
+|:--:|:--:| 
+| *An example category page* | *In game result* |
+
+The "Envoyer" (Send) button is used to push the category to the server after modifications are made. The change is made instantly and everyone can see the result in game, without restarting the server.
 
 ### Challenges
+A challenge contains the following information:
+- **UUID**: All JSON content is stored in a file named after the UUID of the challenge followed by `.json`. The UUID is chosen randomly during creation and cannot be changed.
+- **Category**: Here is defined which category will host this challenge.
+- **Name**: Can include spaces and special characters, as it is not used as an identifier.
+- **Description**: Similar to the name but supports color codes for styling.
+- **Type**: Items (Inventory), Island, Statistics and Others, which will decides what the challenge will ask as requirements. Check the Requirements section
+- **Active Status**: Indicates whether the challenge is active or not. Inactive challenges are still visible in-game but appear grayed out.
+- **Icon**: An item created in the app, displayed in-game as the "logo" of the category.
+- **Page and Slot**: Defines where the category icon will appear within the main menu inventory.
+- **Limit**: How many time this challenge can be completed at total (not daily) by an island (not by player on island)
+- **List of Required Challenges**: A list of challenges that must be completed to unlock this challenge.
+- **Requirements**: What does the challenge needs to be considered as completed
+- **Rewards**: First and Next rewards. Including Items, Commands, Message, Money and Experience
+
+| ![challenge_page](https://github.com/user-attachments/assets/b9c128e3-6dd3-4f56-912c-3615ad220e53) | ![cha_demo](https://github.com/user-attachments/assets/c9d3c09e-7c9d-41ef-8f5c-358e7ee8692e) |
+|:--:|:--:| 
+| *An example challenge page* | *In game result* |
+
+#### Requirements
+This section will showcase the configuration of each prerequisite in a simple and quick manner, with illustrations of the application and its in-game rendering.
+
+##### Inventory (or Items) Requirements
+| ![req_inv_add](https://github.com/user-attachments/assets/b9d523d5-e3cf-47c3-b566-0fae7c97b466) | ![challenge_req_inv_proof](https://github.com/user-attachments/assets/dea281fd-5e39-46f1-b123-667ed5bcdfbb) |
+|:--:|:--:| 
+| *Adding a pickaxe efficiency 5 to the required items of the challenge* | *In game result* |
+
+##### Island (Blocks and/or Entities) Requirements
+| ![req_is_add](https://github.com/user-attachments/assets/50c94b37-331d-464e-9c61-b2e94455adee) | ![challenge_req_is_proof](https://github.com/user-attachments/assets/6d0791a1-319b-4154-91d2-f27d28411272) |
+|:--:|:--:| 
+| *Adding entities and blocks to the requirements of the challenge. Only need 2 clicks by element added.* | *In game result* |
+
+##### Statisticals Requirements
+| ![req_stat_add](https://github.com/user-attachments/assets/47cf3b72-e8e4-46e5-9184-292c569b7a06) | ![challenge_req_stat_proof](https://github.com/user-attachments/assets/d1c276d5-02cc-462a-938f-33d4f9289f64) |
+|:--:|:--:| 
+| *Adding and editing statistics with substatistics to the requirements of the challenge.* | *In game result* |
+
+##### Others (Money, Experience and Island Levels) Requirements
+| ![req_others_add](https://github.com/user-attachments/assets/db2fa3d5-b45a-4079-9ddc-a265fc212e9a) | ![challenge_req_others_proof](https://github.com/user-attachments/assets/87b538b7-ca27-49a5-a297-df05596b9b74) |
+|:--:|:--:| 
+| *Adding money, experience and island levels to the requirements of the challenge.* | *In game result* |
+
+
+#### Rewards
