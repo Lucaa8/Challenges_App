@@ -175,7 +175,7 @@ This section will showcase the configuration of each prerequisite in a simple an
 | *Adding money, experience and island levels to the requirements of the challenge.* | *In game result* |
 
 #### Rewards
-Pour la section des récompenses, nous allons passer en revue les éléments importants tels que les concepts de First et Next Reward et les items. Les messages et commande seront mis de côtés étant donné qu'ils ne sont pas des aspects spécialement interessants et assez basiques. Trouvez ci-dessous une illustration de la création d'une récompense pour l'un de nos défi démonstration, puis du rendu en jeu.
+For the rewards section, we will review key elements such as the concepts of First and Next Rewards and items. Messages and commands will be set aside, as they are not particularly interesting aspects and are fairly basic. Below, you will find an illustration of creating a reward for one of our demonstration challenges, followed by its in-game rendering. 
 
 | ![rew_add](https://github.com/user-attachments/assets/a71aeb77-bca0-470b-8ddd-0660150af5cc) |
 |:--:| 
