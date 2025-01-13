@@ -186,6 +186,6 @@ For the rewards section, we will review key elements such as the concepts of Fir
 | *Our challenge is finally ready. How beautiful ? We even got the 50% sword drop !* | 
 
 ## Conclusion
-Watch this 1-minute 20-second YouTube video demonstrating the app's seamless "live" functionality, with no cuts, showcasing its integration with Minecraft: [Here](https://www.youtube.com/watch?v=ZVZxcM04J6k)
+Watch this 1-minute 20-second YouTube video demonstrating the app's seamless "live" functionality, with no cuts, showcasing its integration with Minecraft: [Here](https://youtu.be/Ml9hSxjDMhs)
 
 Some concepts were certainly covered quickly with minimal explanations. The purpose of this README is not to serve as a comprehensive technical documentation or user guide but rather to demonstrate feasibility. If you have further questions about the concept or in general, feel free to contact me on Discord: lucaa_8.  
