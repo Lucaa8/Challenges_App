@@ -24,8 +24,8 @@
             <TextBox x:Name="tbxAddrIP" Visibility="Hidden" HorizontalAlignment="Left" Style="{StaticResource lblFont1}" FontSize="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="10,141,0,0" TextWrapping="Wrap" Text="localhost:25575" VerticalAlignment="Top" Width="200" Height="30"/>
             <Label x:Name="lblAddrIP" Visibility="Hidden" ToolTip="Modifier l'adresse IP du serveur (P.ex: localhost:25575)" Content="Adresse IP" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Center" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Height="32" Margin="56,104,0,0"/>
         </Grid>
-        <Label x:Name="lblInfo" Content="© 2023 - Version {V} by Luca008" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Right" FontSize="18" HorizontalAlignment="Right" Margin="0,378,10,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="266" Height="32"/>
-        <Label x:Name="lblSplash" Content="Challenges 1.20" Foreground="#FFFDFF00" Style="{StaticResource Minecraft}" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,84,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <Label x:Name="lblInfo" Content="© 2024 - Version {V} by Luca008" Style="{StaticResource lblFont1}" HorizontalContentAlignment="Right" FontSize="18" HorizontalAlignment="Right" Margin="0,378,10,0" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="266" Height="32"/>
+        <Label x:Name="lblSplash" Content="Challenges 1.20.4" Foreground="#FFFDFF00" Style="{StaticResource Minecraft}" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,84,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform x:Name="lblSplashScale" ScaleX="1" ScaleY="1"/>
