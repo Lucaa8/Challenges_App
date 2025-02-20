@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Windows;
@@ -83,20 +85,37 @@ namespace Challenges_App
             return null;
         }
         //Récupère l'ip externe d'un utilisateur
-        public static String getExternIP()
+        public static String? getExternIP()
         {
-            //Prépare une connexion au site distant
-            Uri url = new Uri("https://ipecho.net/plain");
-            //Demande la connexion au site distant
-            WebRequest request = WebRequest.Create(url);
-            //Essaye de récupèrer une réponse (peut être null si le site est down je suppose)
-            WebResponse response = request.GetResponse();
-            //Permet de lire le contenu du site (Ce site contient uniquement l'ip, pas besoin de gerer le string)
-            StreamReader sr = new StreamReader(response.GetResponseStream());
-            String ip = sr.ReadToEnd();
-            //Ferme le Reader
-            sr.Close();
-            return ip;
+            return getTextAtUrl("https://ipecho.net/plain");
+        }
+        //Récupère la dernière version de l'application dans le fichier version.txt du main du repository github
+        public static String? getLastVersion()
+        {
+            return getTextAtUrl("https://raw.githubusercontent.com/Lucaa8/Challenges_App/refs/heads/main/version.md");
+        }
+        private static String? getTextAtUrl(String url)
+        {
+            String? result = null;
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.GetAsync(url).GetAwaiter().GetResult();
+                    response.EnsureSuccessStatusCode();
+                    result = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                }
+                catch (Exception) { }
+            }
+            return result;
+        }
+        public static void OpenBrowser(String url)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo{ FileName = url, UseShellExecute = true });
+            }
+            catch (Exception) { }
         }
         public static String getTimeNow()
         {

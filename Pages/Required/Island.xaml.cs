@@ -123,7 +123,7 @@ namespace Challenges_App.Pages.Required
                     if (item != null)
                     {
                         uuid = item.Tag.ToString().Split(":")[0];
-                        int value = Int32.Parse(item.Tag.ToString().Split(":")[1]);
+                        int value = Int32.Parse(item.Tag.ToString().Split(":")[2]);
                         if (MessageBox.Show("Ce type existe déjà (Valeur="+value+").\nEn faisant ça tu vas écraser son contenu.\nContinuer?", "Error type already exists", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
                         {
                             getBox(item.Content.ToString()).Items.Remove(item);

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Challenges_App.Packet;
 using Challenges_App.Packet.Packets;
 
@@ -15,6 +17,7 @@ namespace Challenges_App.Pages
     public partial class Connect : Page
     {
         private Boolean animate = true;
+        private Version lastVersion = new Version(1,0,0);
         public Connect(string? lastIp)
         {
             InitializeComponent();
@@ -74,6 +77,7 @@ namespace Challenges_App.Pages
             });
             btnAccess.addMouseEnter(c => btnAccess.Animation = true);
             btnAccess.addMouseLeave(c => btnAccess.Animation = false);
+            new Thread(() => checkVersion()).Start();
         }
 
         private String? getIP()
@@ -168,5 +172,52 @@ namespace Challenges_App.Pages
                 await Task.Delay(10);
             }
         }
+
+        private void lblNewVersion_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            String url = "https://github.com/Lucaa8/Challenges_App/releases/tag/csharp_app_" + lastVersion.ToString();
+            Ressource.OpenBrowser(url);
+        }
+
+        private void checkVersion()
+        {
+            String? strLastVersion = Ressource.getLastVersion();
+            if (strLastVersion == null)
+            {
+                Ressource.synchronize(() =>
+                {
+                    lblNewVersion.Content = "Impossible de vérifier si l'application est à jour...";
+                    lblNewVersion.Foreground = Brushes.DarkRed;
+                });
+                return;
+            }
+            String[] versionValues = strLastVersion.Split('.');
+            if (versionValues.Length != 3)
+            {
+                Ressource.synchronize(() =>
+                {
+                    lblNewVersion.Content = "Impossible de vérifier si l'application est à jour...";
+                    lblNewVersion.Foreground = Brushes.DarkRed;
+                });
+                return;
+            }
+            Action sync = () => { };
+            lastVersion = new Version(Int32.Parse(versionValues[0]), Int32.Parse(versionValues[1]), Int32.Parse(versionValues[2]));
+            if (!lastVersion.Equals(MainWindow.v))
+            {
+                sync = () =>
+                {
+                    lblNewVersion.Content = "La nouvelle version " + lastVersion.ToString() + " est disponible! Clique-moi pour t'y rendre";
+                    lblNewVersion.Cursor = Cursors.Hand;
+                    lblNewVersion.MouseUp += lblNewVersion_MouseUp;
+                };
+            }
+            else
+            {
+                sync = () => lblNewVersion.Content = "Le client est à jour!";
+            }
+            Ressource.synchronize(sync);
+        }
+
     }
 }
