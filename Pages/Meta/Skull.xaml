@@ -9,14 +9,22 @@
 
     <Grid x:Name="PageSkull">
         <Label x:Name="lblTitle" Style="{StaticResource lblFont1}" FontSize="30" Content="ItemMeta(Skull) de [I]" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Label x:Name="lblType" ToolTip="PLAYER = Joueur dynamique (Celui qui complète le challenge p.exemple)&#xA;//!!\\ NE PAS METTRE 'PLAYER' SI C'EST POUR UN ITEM REQUIS //!!\\&#xA;PSEUDO = Pseudo de joueur fixe (Luca008 p.exemple)&#xA;MCHEADS = Une tête customisée du site minecraft-heads.com (Tête en question->Tout en bas->Value)" Content="Type :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="65,144,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="118"/>
-        <ComboBox x:Name="cbxType" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="188,150,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="100" Height="28" SelectionChanged="cbxType_SelecChanged">
+        <Label x:Name="lblType" ToolTip="PLAYER = Joueur dynamique (Celui qui complète le challenge p.exemple)&#xA;//!!\\ NE PAS METTRE 'PLAYER' SI C'EST POUR UN ITEM REQUIS //!!\\&#xA;PSEUDO = Pseudo de joueur fixe (Luca008 p.exemple)&#xA;MCHEADS = Une tête customisée du site minecraft-heads.com (Tête en question->Tout en bas->Value)" Content="Type :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="65,144,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="200"/>
+        <ComboBox x:Name="cbxType" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="270,150,0,0" Style="{StaticResource lblFont1}" FontSize="20" VerticalAlignment="Top" Width="100" Height="28" SelectionChanged="cbxType_SelecChanged">
             <ComboBoxItem Content="PLAYER"/>
             <ComboBoxItem Content="PSEUDO"/>
             <ComboBoxItem Content="MCHEADS"/>
         </ComboBox>
-        <Label x:Name="lblValue" Content="Valeur :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="65,226,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="118"/>
-        <TextBox x:Name="tbxValue" IsEnabled="False" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="188,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="25"/>
+        <Label x:Name="lblValue" Content="Valeur :" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="65,226,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="200"/>
+        <TextBox x:Name="tbxValue" IsEnabled="False" HorizontalAlignment="Left" VerticalContentAlignment="Center" Style="{StaticResource lblFont1}" FontSize="20" Margin="270,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" Height="25"/>
+        <Canvas x:Name="cvCache" Visibility="Hidden">
+            <Canvas x:Name="cvCacheError" Visibility="Hidden">
+                <Label Content="Le texte entré n'est pas un entier entre 0 et 2'419'200 (1 semaine)." HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" Width="366" Height="25" Margin="65,340,0,0" Foreground="Red"/>
+                <Label Content="⚠️ Il sera remplacé par 3600 lors de la sauvegarde sur le serveur. ⚠️" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Style="{StaticResource ResourceKey=lblFont1}" FontSize="15" Width="400" Height="25" Margin="65,360,0,0" Foreground="Red"/>
+            </Canvas>
+            <Label x:Name="lblCache" Content="Cache (secondes) :" ToolTip="Combien de temps la texture du skin reste en mémoire avant que le plugin renvoie une requête aux serveurs Mojang. (Mettre 0 pour désactiver le caching)" Style="{StaticResource ResourceKey=lblFont1}" FontSize="25" HorizontalAlignment="Left" Margin="65,308,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="38" Width="200"/>
+            <TextBox x:Name="tbxCache" HorizontalAlignment="Left" VerticalContentAlignment="Center" Text="3600" Style="{StaticResource lblFont1}" FontSize="20" Margin="270,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Height="25" TextChanged="tbxCache_TextChanged"/>
+        </Canvas>
         <Polygon x:Name="btnBack" Cursor="Hand" Points="40,0 40,40 0,20" Stroke="Black" Fill="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,10,0,0" Width="40" Height="40" MouseEnter="btnBack_MouseEnter" MouseLeave="btnBack_MouseLeave" MouseUp="btnBack_Click">
             <Polygon.RenderTransform>
                 <ScaleTransform ScaleX="1" ScaleY="1"/>

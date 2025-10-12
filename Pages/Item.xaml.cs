@@ -525,6 +525,10 @@ namespace Challenges_App.Pages
                 {
                     tbxMaterial.Text = mat.ToString();
                     rectOverlayMaterial.ToolTip = (tbxMaterial.Text.Length > 20) ? mat.ToString() : null;
+                    if(itemmeta != null)
+                    {
+                        MessageBox.Show("Un ItemMeta de type " + itemmeta.getMeta().ToString() + " existe encore sur cet Item.\n\nEnvoyer l'item dans cet état au serveur compromettra la configuration!\n\nSolutions;\n1) Remettre un Material qui supporte cet ItemMeta\n2) Cliquer sur le bouton \"Meta perso.\" afin d'actualiser l'ItemMeta pour ce nouveau Material", "Invalid ItemMeta for " + mat, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
                 }
             });
         }

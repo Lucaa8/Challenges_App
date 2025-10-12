@@ -14,6 +14,11 @@ namespace Challenges_App.Pages.Meta
     public partial class Skull : Page, IMeta
     {
         private Item parent;
+
+        private int minCache = 0;
+        private int maxCache = 2_419_200; //1 week / 7 days
+        private Func<int, bool> ValidateCache => cache => cache >= minCache && cache <= maxCache;
+
         public Skull(Item parent)
         {
             this.parent = parent;
@@ -38,6 +43,10 @@ namespace Challenges_App.Pages.Meta
             {
                 tbxValue.Text = json.Value<String>("Owner");
             }
+            if(json.ContainsKey("UseCache"))
+            {
+                tbxCache.Text = json.Value<Int32>("UseCache").ToString();
+            }
         }
 
         IMeta.Meta IMeta.getMeta()
@@ -58,8 +67,25 @@ namespace Challenges_App.Pages.Meta
             if (!type.Equals("PLAYER"))
             {
                 json["Owner"] = tbxValue.Text;
-            } 
+            }
+            if(type.Equals("PSEUDO"))
+            {
+                if(Int32.TryParse(tbxCache.Text, out var cache) && ValidateCache(cache))
+                {
+                    json["UseCache"] = cache;
+                } else {
+                    json["UseCache"] = 3600;
+                    // Just update the GUI field in case the player saves this item (either by saving it locally or sending it to the server by sending a challenge using it)
+                    // and then later on come back on this page, to avoid desync
+                    tbxCache.Text = "3600";
+                }
+            }
             return json;
+        }
+
+        private void tbxCache_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            cvCacheError.Visibility = Int32.TryParse(tbxCache.Text, out var cache) && ValidateCache(cache) ? Visibility.Hidden : Visibility.Visible;
         }
 
         private void cbxType_SelecChanged(object sender, SelectionChangedEventArgs e)
@@ -73,6 +99,8 @@ namespace Challenges_App.Pages.Meta
                         tbxValue.Height = 25;
                         tbxValue.IsEnabled = false;
                         tbxValue.Text = "";
+                        cvCache.Visibility = Visibility.Hidden;
+                        tbxCache.Text = "";
                     }
                     break;
                 case 1: //PSEUDO
@@ -80,13 +108,17 @@ namespace Challenges_App.Pages.Meta
                         tbxValue.Width = 190;
                         tbxValue.Height = 25;
                         tbxValue.IsEnabled = true;
+                        cvCache.Visibility = Visibility.Visible;
+                        tbxCache.Text = "3600";
                     }
                     break;
                 case 2: //MCHEADS
                     {
-                        tbxValue.Width = 540;
+                        tbxValue.Width = 500;
                         tbxValue.Height = 90;
                         tbxValue.IsEnabled = true;
+                        cvCache.Visibility = Visibility.Hidden;
+                        tbxCache.Text = "";
                     }
                     break;
             }
@@ -112,5 +144,6 @@ namespace Challenges_App.Pages.Meta
         {
             MainWindow.Instance.MainFrame.Navigate(parent);
         }
+
     }
 }

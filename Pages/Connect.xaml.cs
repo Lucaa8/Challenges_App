@@ -61,6 +61,7 @@ namespace Challenges_App.Pages
                         LoginPacket lp = (LoginPacket)packet;
                         if (!lp.isAllowed())
                         {
+                            manager.stop();
                             MessageBox.Show("Le serveur n'a pas autorisé l'accès à cette ressource.\nRaison: " + lp.getReason(), "Error disallowed", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                         else
