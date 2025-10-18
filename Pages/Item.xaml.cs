@@ -289,10 +289,15 @@ namespace Challenges_App.Pages
             }
             if(itemmeta != null)
             {
-                JObject j = new JObject();
-                j["Meta"] = itemmeta.toJson();
-                j["MetaType"] = itemmeta.getMeta().ToString();
-                json["ItemMeta"] = j;
+                JObject meta = itemmeta.toJson();
+                // TrimArmor can be empty if "Actif" is not checked. We dont want any itemmeta if not wanted by the user!
+                if (meta != null && meta.HasValues)
+                {
+                    JObject j = new JObject();
+                    j["Meta"] = meta;
+                    j["MetaType"] = itemmeta.getMeta().ToString();
+                    json["ItemMeta"] = j;
+                }
             }
             if (tbxRepairCost.Text.Length > 0)
             {

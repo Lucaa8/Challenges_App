@@ -9,6 +9,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\TrimArmorControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\Attribute.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +43,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Meta\Skull.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Meta\TrimArmor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Meta\TropicalFish.xaml.cs">

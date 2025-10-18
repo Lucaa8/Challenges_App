@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,6 +42,10 @@ namespace Challenges_App.Pages.Meta
                 }
                 updateColor();
             }
+            if(json.ContainsKey("TrimArmor"))
+            {
+                ucArmorTrim.fromJSON(json.Value<JObject>("TrimArmor"));
+            }
         }
 
         IMeta.Meta IMeta.getMeta()
@@ -65,6 +68,11 @@ namespace Challenges_App.Pages.Meta
                 jrgb["g"] = (byte)sliderGreen.Value;
                 jrgb["b"] = (byte)sliderBlue.Value;
                 json["Color"] = jrgb;
+            }
+            JObject trim = ucArmorTrim.toJson();
+            if (trim.HasValues)
+            {
+                json["TrimArmor"] = trim;
             }
             return json;
         }
@@ -171,5 +179,6 @@ namespace Challenges_App.Pages.Meta
             sliderBlue.Value = b;
             updateColor();
         }
+
     }
 }

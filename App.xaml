@@ -1,9 +1,10 @@
 ﻿<Application x:Class="Challenges_App.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Challenges_App"
+             xmlns:local="clr-namespace:Challenges_App" xmlns:converters="clr-namespace:Challenges_App.Controls.Converter"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <converters:SpacingToMarginConverter x:Key="SpacingToMarginConverter"/>
         <Style x:Key="lblFont1" TargetType="{x:Type Control}" >
             <Setter Property="FontFamily" Value="Fonts/KGPrimaryItalics.ttf #KG Primary Italics"/>
         </Style>

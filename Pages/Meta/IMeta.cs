@@ -7,7 +7,7 @@ namespace Challenges_App.Pages.Meta
     {
         enum Meta
         {
-            None, Skull, Potion, LeatherArmor, Book, TropicalFish
+            None, Skull, Potion, LeatherArmor, Book, TropicalFish, TrimArmor
         }
 
         public static Meta forItem(String material)
@@ -27,6 +27,27 @@ namespace Challenges_App.Pages.Meta
                     case "WRITABLE_BOOK":
                     case "WRITTEN_BOOK": return Meta.Book;
                     case "TROPICAL_FISH_BUCKET": return Meta.TropicalFish;
+                    case "TURTLE_HELMET":
+                    case "CHAINMAIL_HELMET":
+                    case "CHAINMAIL_CHESTPLATE":
+                    case "CHAINMAIL_LEGGINGS":
+                    case "CHAINMAIL_BOOTS":
+                    case "IRON_HELMET":
+                    case "IRON_CHESTPLATE":
+                    case "IRON_LEGGINGS":
+                    case "IRON_BOOTS":
+                    case "DIAMOND_HELMET":
+                    case "DIAMOND_CHESTPLATE":
+                    case "DIAMOND_LEGGINGS":
+                    case "DIAMOND_BOOTS":
+                    case "GOLDEN_HELMET":
+                    case "GOLDEN_CHESTPLATE":
+                    case "GOLDEN_LEGGINGS":
+                    case "GOLDEN_BOOTS":
+                    case "NETHERITE_HELMET":
+                    case "NETHERITE_CHESTPLATE":
+                    case "NETHERITE_LEGGINGS":
+                    case "NETHERITE_BOOTS": return Meta.TrimArmor;
                 }
             }
             return Meta.None;
