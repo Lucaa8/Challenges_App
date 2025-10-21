@@ -5,6 +5,9 @@ using System.Windows;
 using System.Windows.Media;
 using Challenges_App.Packet;
 
+//publish command
+//dotnet publish -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+
 namespace Challenges_App
 {
     /// <summary>
@@ -28,8 +31,7 @@ namespace Challenges_App
 
             //true uniquement lorsque l'application doit être débug (se passe de l'étape de connexion au serveur. Permet d'importer des items, challenges, etc.. localement.
             //(Suppression désactivée mais possibilité d'importer le meme challenge en le glissant dans la boxes + ecraser)
-            init(true);
-            //TODO tester sans le mode debug sur le serv local dans les challenges et créer des leather/iron armor avec et sans trim.
+            init(false);
         }
 
         private void onClose(object sender, System.ComponentModel.CancelEventArgs e)

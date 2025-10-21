@@ -208,7 +208,7 @@ namespace Challenges_App.Pages
             {
                 sync = () =>
                 {
-                    lblNewVersion.Content = "La nouvelle version " + lastVersion.ToString() + " est disponible! Clique-moi pour t'y rendre";
+                    lblNewVersion.Content = "Une nouvelle version (" + lastVersion.ToString() + ") est disponible! Clique-moi pour t'y rendre";
                     lblNewVersion.Cursor = Cursors.Hand;
                     lblNewVersion.MouseUp += lblNewVersion_MouseUp;
                 };
